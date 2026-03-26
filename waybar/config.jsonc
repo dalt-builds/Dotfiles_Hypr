@@ -1,0 +1,103 @@
+{
+    "layer": "top",
+    "modules-left": [
+        "custom/rofi",
+        "cpu",
+        "temperature",
+        "memory",
+        "hyprland/mode"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "network",
+        "bluetooth",
+        "pulseaudio",
+        "backlight",
+        "battery",
+        "clock",
+        "custom/power"
+    ],
+
+    // Modules configuration
+    "custom/rofi": {
+        "tooltip": "true",
+        "format": "{icon}",
+        "format-icons": [" 󰣇"],
+        "on-click": "rofi -show drun"
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "~/.config/waybar/scripts/power.sh",
+        "tooltip": false
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "smooth-scrolling-threshold": 5,
+        "scroll-step": 5,
+        "format": "{percent}% {icon} ",
+        "format-icons": ["", ""]
+    },
+
+    "network": {
+        "format-wifi": " ",
+        "format-ethernet": "ETH ",
+        "format-disconnected": "Offline ⚠",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "on-click": "kitty -e nmtui"
+    },
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "",
+        "format-connected": " {num_connections}",
+        "tooltip-format": "{device_alias}",
+        "on-click": "blueman-manager"
+    },
+    "temperature": {
+        "format": "{temperatureC}°C {icon}",
+        "tooltip": true,
+        "tooltip-format": "Temperatura actual: {temperatureC}°C\nCrítico si > 80°C",
+        "format-icons": [""]
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": true,
+        "tooltip-format": "CPU: {usage}%\nConsumo: {exec:cat /sys/class/power_supply/BAT0/power_now | awk '{print $1/1000000 \" W\"}'}"
+    },
+    "memory": {
+        "format": "{}%  ",
+        "tooltip": true,
+        "tooltip-format": "RAM en uso: {used} / {total} ({percentage}%)"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-muted": "Muted ",
+        "format-icons": {
+            "default": ["","", ""]
+        }
+    },
+
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon} ",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "clock": {
+        "format": "{:%d/%m %H:%M}",
+        "tooltip-format": "<big>{:%d/%m}</big>\n<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1
+        }
+    }
+}

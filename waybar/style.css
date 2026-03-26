@@ -1,0 +1,71 @@
+/* Windows style */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: 'JetBrainsMono Nerd Font' , 'Symbols Only';
+    font-size: 15px;
+    min-height: 0;
+    font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+    margin: 0 5px;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: white;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: white;
+    border-bottom: 3px solid transparent;
+}
+#workspaces button.active {
+    padding: 0 5px;
+    background-color: #373737;
+    border-radius: 10px;
+    color: #ffffff;
+    opacity: 0.5;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+#workspaces button:hover {
+  color: #525252;
+}
+
+#mode, #clock, #battery, #backlight, #temperature, #network, #pulseaudio, #memory, #cpu, #bluetooth {
+    padding: 0 10px;
+    border-radius: 10px;
+    background-color: rgba(55, 55, 55, 0.5);
+    color: #ffffff;
+}
+
+#battery.charging {
+    color: white;
+    background-color: rgba(80,80,80, 0.6);
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: rgba(252, 0, 0, 0.6);
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
