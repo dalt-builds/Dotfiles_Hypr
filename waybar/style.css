@@ -1,71 +1,95 @@
-/* Windows style */
-
 * {
-    border: none;
     border-radius: 0;
-    font-family: 'JetBrainsMono Nerd Font' , 'Symbols Only';
-    font-size: 15px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
     min-height: 0;
-    font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-    margin: 0 5px;
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0);
-    color: white;
+    background: rgba(0,0,0,0);
+    color: #cdd6f4;
 }
 
-tooltip {
-  background: rgba(43, 48, 59, 0.5);
-  border: 1px solid rgba(100, 114, 125, 0.5);
+/* Bloques */
+#workspaces,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#backlight,
+#custom-rofi,
+#custom-power,
+#mode {
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin: 0;
+    background: rgba(30, 30, 46, 0.80);
+    color: #cdd6f4;
 }
-tooltip label {
-  color: white;
+
+/* Workspaces */
+#workspaces {
+    padding-left: 12px;
 }
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0 6px;
+    color: #7f849c;
     background: transparent;
-    color: white;
-    border-bottom: 3px solid transparent;
 }
+
 #workspaces button.active {
-    padding: 0 5px;
-    background-color: #373737;
-    border-radius: 10px;
-    color: #ffffff;
-    opacity: 0.5;
-    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+    color: #89b4fa;
+    text-shadow: 0 0 6px rgba(137, 180, 250, 0.8);
 }
+
 #workspaces button:hover {
-  color: #525252;
+    color: #f5c2e7;
 }
 
-#mode, #clock, #battery, #backlight, #temperature, #network, #pulseaudio, #memory, #cpu, #bluetooth {
-    padding: 0 10px;
-    border-radius: 10px;
-    background-color: rgba(55, 55, 55, 0.5);
+/* Bloque especial de rofi */
+#custom-rofi {
+    background: rgba(70, 70, 120, 0.90);
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 4px 14px;
+    margin: 0 6px;
+}
+
+/* Clock */
+#clock {
+    background: rgba(50, 50, 80, 0.90);
     color: #ffffff;
 }
 
-#battery.charging {
-    color: white;
-    background-color: rgba(80,80,80, 0.6);
+/* Colores por módulo */
+#cpu { color: #fab387; }
+#memory { color: #a6e3a1; }
+#temperature { color: #f38ba8; }
+#network { color: #89b4fa; }
+#bluetooth { color: #94e2d5; }
+#pulseaudio { color: #f9e2af; }
+#battery { color: #a6e3a1; }
+
+/* Estados de batería */
+#battery.warning {
+    color: #f9e2af;
 }
 
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: black;
-    }
+#battery.critical {
+    color: #f38ba8;
 }
 
-#battery.warning:not(.charging) {
-    background: rgba(252, 0, 0, 0.6);
-    color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+/* Tooltip */
+tooltip {
+    background: rgba(20, 20, 30, 0.95);
+    border: 1px solid rgba(100, 100, 150, 0.3);
+}
+
+tooltip label {
+    color: #cdd6f4;
 }
